@@ -8,8 +8,8 @@ on:
         required: true
         type: 'string'
 jobs:
-  build:    
+  build:
     uses: ./.github/workflows/reusable.yml
     with:
-      host: ${{ vars.TEST_ENV_VAR }}
+      host: ${{ secrets.TEST_RES_SECRET }}
     secrets: inherit
