@@ -1,13 +1,22 @@
 name: reusable
 on: 
   workflow_call:
+    inputs:
+      host:
+        description: registry_host
+        required: true
+        type: string
 
 jobs:
   first-job:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
     - name: Use variables
       run: |
         echo "repo variable : ${{ vars.TEST_REPO_VAR }}"
         echo "org variable : ${{ vars.TEST_ORG_VAR }}"
         echo "overriden variable : ${{ vars.OVERRIDE_VAR }}"
+    - run: echo "${{ toJSON(vars) }}"
+    - name: see inputs
+      run: echo "${{ inputs.host }}"
