@@ -11,5 +11,5 @@ jobs:
   build:    
     uses: ./.github/workflows/reusable.yml
     with:
-      host: ${{ vars.DOCKER_REGISTRY }}
+      host: ${{ vars.TEST_ENV_VAR }}
     secrets: inherit
