@@ -1,0 +1,15 @@
+name: varsusage
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        default: 'prod'
+        required: true
+        type: 'string'
+jobs:
+  build:    
+    uses: ./.github/workflows/reusable.yml
+    with:
+      host: ${{ vars.DOCKER_REGISTRY }}
+    secrets: inherit
