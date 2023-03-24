@@ -11,5 +11,5 @@ jobs:
   build:
     uses: ./.github/workflows/reusable.yml
     with:
-      host: ${{ secrets.TEST_RES_SECRET }}
+      host: ${{ vars.TEST_RES_SECRET }}
     secrets: inherit
